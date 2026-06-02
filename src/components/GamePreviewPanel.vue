@@ -14,7 +14,11 @@
     </header>
 
     <section class="game-stage" aria-label="游戏试玩区域">
-      <EmptyGamePlaceholder :game-id="game.id" />
+      <TargetCard v-if="game.id === 'target-card'" />
+      <TargetCardCompare v-else-if="game.id === 'target-card-compare'" />
+      <WordMatch v-else-if="game.id === 'word-match'" />
+      <HideWord v-else-if="game.id === 'hide-word'" />
+      <EmptyGamePlaceholder v-else :game-id="game.id" />
     </section>
 
     <footer class="preview-footer">
@@ -25,6 +29,10 @@
 
 <script setup lang="ts">
 import EmptyGamePlaceholder from './EmptyGamePlaceholder.vue'
+import TargetCard from '../games/target-card/TargetCard.vue'
+import TargetCardCompare from '../games/target-card-compare-compare/TargetCardCompare.vue'
+import WordMatch from '../games/word-match/WordMatch.vue'
+import HideWord from '../games/hide-word/HideWord.vue'
 import type { GameMeta } from '../games/registry'
 import { statusTextMap } from '../games/registry'
 

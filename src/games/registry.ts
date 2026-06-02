@@ -14,25 +14,39 @@ export const statusTextMap: Record<GameMeta['status'], string> = {
 
 export const gameRegistry: GameMeta[] = [
   {
+    id: 'target-card',
+    name: '目标卡片挑战-未使用动画库',
+    type: '识字类',
+    desc: '根据提示找出目标汉字',
+    status: 'ready',
+  },
+  {
+    id: 'target-card-compare',
+    name: '目标卡片挑战-使用GASP 动画库以及 GASP-skill',
+    type: '识字类',
+    desc: '根据提示找出目标汉字',
+    status: 'ready',
+  },
+  {
+    id: 'word-match',
+    name: '词语搭配挑战',
+    type: '语言类',
+    desc: '帮词语找到最合适的朋友',
+    status: 'ready',
+  },
+  {
+    id: 'hide-word',
+    name: '文字躲猫猫',
+    type: '记忆类',
+    desc: '记住 6 个汉字，找出躲起来的那个',
+    status: 'ready',
+  },
+  {
     id: 'poem-grid',
     name: '古诗词九宫格',
     type: '诗词类',
     desc: '根据提示选择正确诗句或字词',
     status: 'todo',
-  },
-  {
-    id: 'idiom-match',
-    name: '成语配对',
-    type: '成语类',
-    desc: '匹配成语释义与答案',
-    status: 'placeholder',
-  },
-  {
-    id: 'word-link',
-    name: '字词连线',
-    type: '识字类',
-    desc: '连接相关字词或释义',
-    status: 'placeholder',
   },
   {
     id: 'listen-choice',
