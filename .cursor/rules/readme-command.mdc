@@ -1,0 +1,16 @@
+---
+description: 执行 readme-command 时直接写入或更新根目录 README.md
+alwaysApply: true
+---
+
+# README 生成命令约定
+
+当用户执行 `/readme-command`、引用 `readme-command`，或要求按该命令生成项目 README 时：
+
+1. 分析项目真实结构（`package.json`、`vite.config.*`、`src/`、`games/` 等），不编造未实现功能。
+2. 按 `.cursor/commands/readme-command.md` 的格式与风格生成中文 README。
+3. **必须**将结果写入或更新项目根目录 `README.md`，无需再询问是否写入。
+4. 若已有 `README.md`，先阅读再决定优化合并或整体更新，以反映当前代码为准。
+5. 不确定的信息用「待补充」；不泄露 `.env` 敏感信息；封面图优先使用命令中的默认 OSS 地址或 `docs/images/readme-cover.*`（若存在）。
+
+完成后在回复中简要说明写入完成及主要更新点即可。
