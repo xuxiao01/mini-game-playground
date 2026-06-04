@@ -33,30 +33,42 @@ function handleSelectGame(gameId: string) {
 <style scoped>
 .playground-page {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: #f3f6fb;
 }
 
 .playground-sidebar {
-  flex: 0 0 300px;
+  flex: 0 0 290px;
+  height: 100%;
 }
 
 .playground-content {
   flex: 1;
   min-width: 0;
+  height: 100%;
+  overflow-y: auto;
   padding: 28px;
 }
 
 @media (max-width: 760px) {
   .playground-page {
     flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
   }
 
   .playground-sidebar {
-    flex-basis: auto;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
   }
 
   .playground-content {
+    flex: 1;
+    min-height: 0;
     padding: 18px;
   }
 }

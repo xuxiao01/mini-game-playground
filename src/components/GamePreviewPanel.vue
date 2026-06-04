@@ -18,6 +18,7 @@
       <TargetCardCompare v-else-if="game.id === 'target-card-compare'" />
       <WordMatch v-else-if="game.id === 'word-match'" />
       <HideWord v-else-if="game.id === 'hide-word'" />
+      <FlipCard v-else-if="game.id === 'flip-card'" />
       <EmptyGamePlaceholder v-else :game-id="game.id" />
     </section>
 
@@ -33,6 +34,7 @@ import TargetCard from '../games/target-card/TargetCard.vue'
 import TargetCardCompare from '../games/target-card-compare-compare/TargetCardCompare.vue'
 import WordMatch from '../games/word-match/WordMatch.vue'
 import HideWord from '../games/hide-word/HideWord.vue'
+import FlipCard from '../games/flip-card/FlipCard.vue'
 import type { GameMeta } from '../games/registry'
 import { statusTextMap } from '../games/registry'
 

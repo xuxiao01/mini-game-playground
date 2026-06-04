@@ -42,6 +42,13 @@ export const gameRegistry: GameMeta[] = [
     status: 'ready',
   },
   {
+    id: 'flip-card',
+    name: '翻翻卡记忆挑战',
+    type: '记忆类',
+    desc: '翻开卡片，找到一样的汉字朋友',
+    status: 'ready',
+  },
+  {
     id: 'poem-grid',
     name: '古诗词九宫格',
     type: '诗词类',
