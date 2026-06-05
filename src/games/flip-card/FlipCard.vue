@@ -25,8 +25,12 @@
           @click="handleCardClick(card)"
         >
           <div class="flip-card__inner">
-            <div class="flip-card__face flip-card__face--back">?</div>
-            <div class="flip-card__face flip-card__face--front">{{ card.word }}</div>
+            <div class="flip-card__face flip-card__face--back">
+              <img class="flip-card__back-img" :src="cardBackImg" alt="" />
+            </div>
+            <div class="flip-card__face flip-card__face--front">
+              <span class="flip-card__word">{{ card.word }}</span>
+            </div>
           </div>
         </button>
       </div>
@@ -62,6 +66,7 @@ import flipCardMp3 from '../../assets/audio/flipcard.mp3'
 import wrongnnMp3 from '../../assets/audio/wrongnn.mp3'
 import finishSuccessMp3 from '../../assets/audio/finish-success.mp3'
 import shuffleCardMp3 from '../../assets/audio/shufflecard.mp3'
+import cardBackImg from '../../assets/images/card-back.png'
 
 const rootRef = ref<HTMLElement | null>(null)
 const gridRef = ref<HTMLElement | null>(null)
@@ -439,6 +444,9 @@ onUnmounted(() => {
 }
 
 .flip-card {
+  position: relative;
+  display: block;
+  width: 100%;
   aspect-ratio: 3 / 4;
   padding: 0;
   border: none;
@@ -453,9 +461,8 @@ onUnmounted(() => {
 }
 
 .flip-card__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   transform-style: preserve-3d;
   transform: rotateY(0deg);
 }
@@ -466,29 +473,52 @@ onUnmounted(() => {
   display: grid;
   place-items: center;
   border-radius: 18px;
+  overflow: hidden;
   backface-visibility: hidden;
-  box-shadow: 0 10px 22px rgb(15 23 42 / 0.08);
 }
 
 .flip-card__face--back {
-  background: linear-gradient(180deg, #5ca8ff 0%, #2f80ed 100%);
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 800;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+
+.flip-card__back-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .flip-card__face--front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: rotateY(180deg);
-  background: #ffffff;
+  background: linear-gradient(180deg, #fff9eb 0%, #fdeec8 48%, #fae5b0 100%);
+  border: 2px solid #f5d78a;
+  box-shadow: 0 10px 22px rgb(15 23 42 / 0.08);
+}
+
+.flip-card__word {
   color: #1f3b66;
-  border: 2px solid #d7e9ff;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: clamp(34px, 10vw, 48px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .flip-card--matched .flip-card__face--front {
-  background: #f0fff4;
+  background: linear-gradient(180deg, #f0fff4 0%, #dcfce7 100%);
   border-color: #22c55e;
+}
+
+.flip-card--matched .flip-card__word {
+  color: #166534;
 }
 
 .flip-card-game__result {
@@ -534,8 +564,8 @@ onUnmounted(() => {
     gap: 8px;
   }
 
-  .flip-card__face--front {
-    font-size: 32px;
+  .flip-card__word {
+    font-size: clamp(30px, 9vw, 40px);
   }
 }
 </style>

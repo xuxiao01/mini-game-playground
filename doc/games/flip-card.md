@@ -103,7 +103,7 @@ lastUpdated: 2026-06-03
 | 匹配失败 | 不配 | GSAP x | 横抖 repeat 3 | 与 wrongnn 同步 |
 | 结算入场 | 完成 | GSAP 淡入 | 结果区 | — |
 
-CSS：`perspective: 1000px`；背面蓝渐变 `?`；正面白底大字；`--matched` 绿样式。
+CSS：`perspective: 1000px`；背面 `src/assets/images/card-back.png`；正面奶黄渐变 + 浅黄描边 + 居中大字 `#1f3b66`；匹配成功时正面变绿渐变绿边。
 
 ---
 
